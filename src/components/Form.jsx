@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/SPITlogo.jpeg"
+import logo from "../assets/SPITlogo.png"
 
 class StudentInformation extends React.Component {
     state = {};
@@ -7,9 +7,12 @@ class StudentInformation extends React.Component {
         return (
 
             <>
-            <div className=" container-lg m-4">
+            
+            <div className="container-fluid" style={{ height: "100vh" }}>
+                <div className="row justify-content-center align-items-center h-100">
+                    <div className="col-md-8">
 
-                <div className="d-flex justify-content-center align-items-center mt-4 bg-light">
+                <div className=" d-flex justify-content-center align-items-center mt-4 bg-light">
                 <img src={logo} alt="spit logo" className="img-fluid"  style={{ width: "750px" }} />
                 </div>
 
@@ -53,7 +56,7 @@ class StudentInformation extends React.Component {
 
             <div className="row mb-3">
                 <div className="col-md-6">
-                    <label className="col-form-label text-end">Date of Birth:</label>
+                    <label className="col-form-label text-end ">Date of Birth:</label>
                     <input type="text" className="form-control" name="dob" />
                 </div>
                 <div className="col-md-6">
@@ -167,12 +170,386 @@ class StudentInformation extends React.Component {
           </table>
           </div>
           </div>
-          
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
-      </div>
+
+          {/* Form part 2*/}
+          <div className=" row mb-3">
+            <div className=" col-md-12">
+            <label  className="col-form-label text-end">KT information: Write name of subject(s) only</label>
+            </div>
             </div>
 
+            <div className="row mb-3 justify-content-center">
+              <div className=" col-md-12">
+            <table className="table table-bordered" style={{ marginTop: "20px" }}>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>SEM I</th>
+                  <th>SEM II</th>
+                  <th>SEM III</th>
+                  <th>SEM IV</th>
+                  <th>SEM V</th>
+                  <th>SEM VI</th>
+                  <th>SEM VII</th>
+                  <th>SEM VIII</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>First Attempt</td>
+                  <td>
+                    <input type="text" name="sem1" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem2"className=" col-md-11"  />
+                  </td>
+                  <td>
+                    <input type="text" name="sem3"className=" col-md-11"  />
+                  </td>
+                  <td>
+                    <input type="text" name="sem4"className=" col-md-11"  />
+                  </td>
+                  <td>
+                    <input type="text" name="sem5"className=" col-md-11"  />
+                  </td>
+                  <td>
+                    <input type="text" name="sem6"className=" col-md-11"  />
+                  </td>
+                  <td>
+                    <input type="text" name="sem7"className=" col-md-11"  />
+                  </td>
+                  <td>
+                    <input type="text" name="sem8"className=" col-md-11"  />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Second Attempt</td>
+                  <td>
+                    <input type="text" name="sem1" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem2" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem3" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem4" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem5" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem6" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem7"className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem8" className=" col-md-11"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Third Attempt</td>
+                  <td>
+                    <input type="text" name="sem1"className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem2" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem3" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem4" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem5"className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem6" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem7" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem8" className=" col-md-11"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Fourth Attempt</td>
+                  <td>
+                    <input type="text" name="sem1"className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem2"className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem3"className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem4" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem5"className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem6" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem7" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem8" className=" col-md-11" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          </div>
+          
+          <div className="row mb-3">
+            <div className=" col-md-12">
+            <label>Defaulter’s subject wise/total attendance details:</label>
+            </div>
+            </div>
+            
+            <div>
+              <div>
+            <table className="table table-bordered" style={{ marginTop: "20px" }}>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>SEM I</th>
+                  <th>SEM II</th>
+                  <th>SEM III</th>
+                  <th>SEM IV</th>
+                  <th>SEM V</th>
+                  <th>SEM VI</th>
+                  <th>SEM VII</th>
+                  <th>SEM VIII</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Attendance After First Defaulters</td>
+                  <td>
+                    <input type="text" name="sem1" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem5" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem6" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem7" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem8" className=" col-md-11"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Attendance After Second Defaulters</td>
+                  <td>
+                    <input type="text" name="sem1" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem2" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem3" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem4" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem5" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem6" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem7" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem8" className=" col-md-11"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Attendance After Third Defaulters</td>
+                  <td>
+                    <input type="text" name="sem1" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem2" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem3" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem4" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem5" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem6" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem7"className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="sem8" className=" col-md-11"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Attendance After Final Defaulters</td>
+                  <td>
+                    <input type="text" name="sem1" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem2" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem3" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem4" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem5" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem6" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem7" className=" col-md-11"/>
+                  </td>
+                  <td>
+                    <input type="text" name="sem8" className=" col-md-11"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+
+          <div className="row mb-3">
+            <div className=" col-md-12">
+            <label className="col-form-label text-end">Area of interest:</label>
+            <input type="text" className=" form-control" name="AreaOfInterest" />
+            
+            <label className="col-form-label text-end">Goals/Future Plans (After BE):</label>
+            <input type="text" className="form-control" name="goalsFuturePlans" />
+            </div>
+          </div>
+
+          <div className="row mb-3 mt-2">
+            <div className=" col-md-12">
+            <label>Achievements:</label>
+            </div>
+          </div>
+            <div className="row mb-3">
+              <div className=" col-md-12">
+            <table className="table table-bordered" style={{ marginTop: "20px" }}>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Award</th>
+                  <th>College/State/National/International</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="text" name="date" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="award" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="collegeStateNationalInternational"
+                      className="col-md-11"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="text" name="date" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="award" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="collegeStateNationalInternational"
+                      className="col-md-11"
+                    />
+                  </td>
+                </tr><tr>
+                  <td>
+                    <input type="text" name="date" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="award" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="collegeStateNationalInternational"
+                      className="col-md-11"
+                    />
+                  </td>
+                </tr><tr>
+                  <td>
+                    <input type="text" name="date" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input type="text" name="award" className=" col-md-11" />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      name="collegeStateNationalInternational"
+                      className="col-md-11"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </div>
+            
+            <div className="row mb-3 ">
+              <div className=" col-md-12">
+              <label className="col-form-label text-end">Any other:</label>
+              <input type="text" className=" form-control" name="anyOther" />
+            
+              <label className="col-form-label text-end mt-2">Signature of student</label>
+              <input type="file" className=" form-control" accept=".pdf,.jpg,.jpeg" />
+              <br />
+              
+              </div>
+            </div>
+          
+          <button type="submit" className="btn btn-primary container d-flex justify-content-center align-content-center">Submit</button>
+        </form>
+      </div>
+     </div>
+</div></div>
             </>
         );
     }
