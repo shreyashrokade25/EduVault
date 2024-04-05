@@ -1,8 +1,133 @@
-import React from "react";
+import React, { Component } from "react";
+import axios from "axios";
 import logo from "../assets/SPITlogo.png"
 
 class StudentInformation extends React.Component {
-    state = {};
+    state = {
+        sem: "",
+        class: "",
+        uid: "",
+        studentName: "",
+        branch: "",
+        dob: "",
+        bloodGroup: "",
+        tempAddress: "",
+        permAddress: "",
+        fatherPhone: "",
+        motherPhone: "",
+        studentPhone: "",
+        fatherOccupation: "",
+        motherOccupation: "",
+        hobbies: "",
+        strengthAndWeaknesses: "",
+        sem1CGPA: "",
+        sem2CGPA: "",
+        sem3CGPA: "",
+        sem4CGPA: "",
+        sem5CGPA: "",
+        sem6CGPA: "",
+        sem7CGPA: "",
+        sem8CGPA: "",
+        ktSubjects: "",
+        attempts: {
+            first: "",
+            second: "",
+            third: "",
+            fourth: ""
+        },
+        defaulterAttendance: {
+            sem1: "",
+            sem2: "",
+            sem3: "",
+            sem4: "",
+            sem5: "",
+            sem6: "",
+            sem7: "",
+            sem8: ""
+        },
+        attendanceAfterDefaulter: {
+            first: "",
+            second: "",
+            third: "",
+            final: ""
+        },
+        areaOfInterest: "",
+        goals: "",
+        achievements: [],
+        anyOther: "",
+        signature: ""
+    };
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:5000/students", this.state);
+            console.log("Student data submitted successfully:", response.data);
+            // TO Reset form fields after successful submission 
+            this.setState({
+                sem: "",
+                class: "",
+                uid: "",
+                studentName: "",
+                branch: "",
+                dob: "",
+                bloodGroup: "",
+                tempAddress: "",
+                permAddress: "",
+                fatherPhone: "",
+                motherPhone: "",
+                studentPhone: "",
+                fatherOccupation: "",
+                motherOccupation: "",
+                hobbies: "",
+                strengthAndWeaknesses: "",
+                sem1CGPA: "",
+                sem2CGPA: "",
+                sem3CGPA: "",
+                sem4CGPA: "",
+                sem5CGPA: "",
+                sem6CGPA: "",
+                sem7CGPA: "",
+                sem8CGPA: "",
+                ktSubjects: "",
+                attempts: {
+                    first: "",
+                    second: "",
+                    third: "",
+                    fourth: ""
+                },
+                defaulterAttendance: {
+                    sem1: "",
+                    sem2: "",
+                    sem3: "",
+                    sem4: "",
+                    sem5: "",
+                    sem6: "",
+                    sem7: "",
+                    sem8: ""
+                },
+                attendanceAfterDefaulter: {
+                    first: "",
+                    second: "",
+                    third: "",
+                    final: ""
+                },
+                areaOfInterest: "",
+                goals: "",
+                achievements: [],
+                anyOther: "",
+                signature: ""
+            });
+        } catch (error) {
+            console.error("Error submitting student data:", error);
+        }
+    };
+
     render() {
         return (
 
@@ -22,28 +147,29 @@ class StudentInformation extends React.Component {
             </div>
 
             <div className=" mt-4 row mb-3 bg-light">
-        <form>
+                
+        <form onSubmit={this.handleSubmit}>  {/* To handle form submission to database  */}
         <div className="row mb-3 justify-content-center">
                 <div className="col-md-4">
                     <label className="col-form-label text-end">SEM:</label>
-                    <input type="text" className="form-control" name="sem" />
+                    <input type="text" className="form-control" name="sem" value={this.state.sem} onChange={this.handleChange}/>
                 </div>
 
                 <div className="col-md-4">
                     <label className="col-form-label text-end">CLASS:</label>
-                    <input type="text" className="form-control" name="class" />
+                    <input type="text" className="form-control" name="class" value={this.state.class} onChange={this.handleChange}/>
                 </div>
                 
                 <div className="col-md-4">
                     <label className="col-form-label text-end">UID NO:</label>
-                    <input type="text" className="form-control" name="uid" />
+                    <input type="text" className="form-control" name="uid" value={this.state.uid} onChange={this.handleChange}/>
                 </div>
             </div>
 
           <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Name of the Student:</label>
-                    <input type="text" className="form-control" name="studentName" />
+                    <input type="text" className="form-control" name="studentName" value={this.state.studentName} onChange={this.handleChange}/>
                 </div>
             </div>
 
@@ -57,67 +183,67 @@ class StudentInformation extends React.Component {
             <div className="row mb-3">
                 <div className="col-md-6">
                     <label className="col-form-label text-end ">Date of Birth:</label>
-                    <input type="text" className="form-control" name="dob" />
+                    <input type="text" className="form-control" name="dob" value={this.state.dob} onChange={this.handleChange}/>
                 </div>
                 <div className="col-md-6">
                     <label className="col-form-label text-end">Blood Group:</label>
-                    <input type="text" className="form-control" name="bloodGroup" />
+                    <input type="text" className="form-control" name="bloodGroup" value={this.state.bloodGroup} onChange={this.handleChange}/>
                 </div>
             </div>
-
+            
             <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Branch:</label>
-                    <input type="text" className="form-control" name="branch" />
+                    <input type="text" className="form-control" name="branch" value={this.state.branch} onChange={this.handleChange}/>
                 </div>
             </div>
 
             <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Temporary Address:</label>
-                    <input type="text" className="form-control" name="tempAddress" />
+                    <input type="text" className="form-control" name="tempAddress" value={this.state.tempAddress} onChange={this.handleChange}/>
                 </div>
             </div>
 
             <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Permanent Address:</label>
-                    <input type="text" className="form-control" name="permAddress" />
+                    <input type="text" className="form-control" name="permAddress" value={this.state.permAddress} onChange={this.handleChange}/>
                 </div>
             </div>
 
             <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Father's Occupation:</label>
-                    <input type="text" className="form-control" name="fatherOccupation" />
+                    <input type="text" className="form-control" name="fatherOccupation" value={this.state.fatherOccupation} onChange={this.handleChange}/>
                 </div>
             </div>
 
             <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Mother's Occupation:</label>
-                    <input type="text" className="form-control" name="motherOccupation" />
+                    <input type="text" className="form-control" name="motherOccupation" value={this.state.motherOccupation} onChange={this.handleChange}/>
                 </div>
             </div>
 
             <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Hobbies:</label>
-                    <input type="text" className="form-control" name="hobbies" />
+                    <input type="text" className="form-control" name="hobbies" value={this.state.hobbies} onChange={this.handleChange}/>
                 </div>
             </div>
 
             <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Strength and Weaknesses:</label>
-                    <input type="text" className="form-control" name="strengthAndWeaknesses" />
+                    <input type="text" className="form-control" name="strengthAndWeaknesses" value={this.state.strengthAndWeaknesses} onChange={this.handleChange}/>
                 </div>
             </div>
 
             <div className="row mb-3">
                 <div className="col-md-12">
                     <label className="col-form-label text-end">Result: Final Mark (with percentage):</label>
-                    <input type="text" className="form-control" name="Result" />
+                    <input type="text" className="form-control" name="Result" value={this.state.Result} onChange={this.handleChange}/>
 
                 </div>
             </div>
@@ -142,28 +268,28 @@ class StudentInformation extends React.Component {
               <tr>
                 <td>CGPA</td>
                 <td>
-                  <input type="text" name="sem1CGPA" className=" col-md-11" />
+                  <input type="text" name="sem1CGPA" className=" col-md-11" value={this.state.sem1CGPA} onChange={this.handleChange}/>
                 </td>
                 <td>
-                  <input type="text" name="sem2CGPA" className=" col-md-11"  />
+                  <input type="text" name="sem2CGPA" className=" col-md-11"  value={this.state.sem2CGPA} onChange={this.handleChange}/>
                 </td>
                 <td>
-                  <input type="text" name="sem3CGPA"className=" col-md-11" />
+                  <input type="text" name="sem3CGPA"className=" col-md-11" value={this.state.sem3CGPA} onChange={this.handleChange}/>
                 </td>
                 <td>
-                  <input type="text" name="sem4CGPA" className=" col-md-11" />
+                  <input type="text" name="sem4CGPA" className=" col-md-11" value={this.state.sem4CGPA} onChange={this.handleChange}/>
                 </td>
                 <td>
-                  <input type="text" name="sem5CGPA" className=" col-md-11" />
+                  <input type="text" name="sem5CGPA" className=" col-md-11" value={this.state.sem5CGPA} onChange={this.handleChange}/>
                 </td>
                 <td>
-                  <input type="text" name="sem6CGPA" className=" col-md-11" />
+                  <input type="text" name="sem6CGPA" className=" col-md-11" value={this.state.sem6CGPA} onChange={this.handleChange}/>
                 </td>
                 <td>
-                  <input type="text" name="sem7CGPA" className=" col-md-11" />
+                  <input type="text" name="sem7CGPA" className=" col-md-11" value={this.state.sem7CGPA} onChange={this.handleChange}/>
                 </td>
                 <td>
-                  <input type="text" name="sem8CGPA" className=" col-md-11" />
+                  <input type="text" name="sem8CGPA" className=" col-md-11" value={this.state.sem8CGPA} onChange={this.handleChange}/>
                 </td>
               </tr>
             </tbody>
@@ -198,109 +324,109 @@ class StudentInformation extends React.Component {
                 <tr>
                   <td>First Attempt</td>
                   <td>
-                    <input type="text" name="sem1" className=" col-md-11" />
+                    <input type="text" name="sem1" className=" col-md-11" value={this.state.sem1} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem2"className=" col-md-11"  />
+                    <input type="text" name="sem2"className=" col-md-11"  value={this.state.sem2} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem3"className=" col-md-11"  />
+                    <input type="text" name="sem3"className=" col-md-11" value={this.state.sem3} onChange={this.handleChange} />
                   </td>
                   <td>
-                    <input type="text" name="sem4"className=" col-md-11"  />
+                    <input type="text" name="sem4"className=" col-md-11"  value={this.state.sem4} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem5"className=" col-md-11"  />
+                    <input type="text" name="sem5"className=" col-md-11" value={this.state.sem5} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem6"className=" col-md-11"  />
+                    <input type="text" name="sem6"className=" col-md-11"  value={this.state.sem6} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem7"className=" col-md-11"  />
+                    <input type="text" name="sem7"className=" col-md-11"  value={this.state.sem7} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem8"className=" col-md-11"  />
+                    <input type="text" name="sem8"className=" col-md-11"  value={this.state.sem8} onChange={this.handleChange}/>
                   </td>
                 </tr>
                 <tr>
                   <td>Second Attempt</td>
                   <td>
-                    <input type="text" name="sem1" className=" col-md-11" />
+                    <input type="text" name="sem1" className=" col-md-11" value={this.state.sem1} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem2" className=" col-md-11" />
+                    <input type="text" name="sem2" className=" col-md-11" value={this.state.sem2} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem3" className=" col-md-11" />
+                    <input type="text" name="sem3" className=" col-md-11" value={this.state.sem3} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem4" className=" col-md-11"/>
+                    <input type="text" name="sem4" className=" col-md-11" value={this.state.sem4} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem5" className=" col-md-11" />
+                    <input type="text" name="sem5" className=" col-md-11" value={this.state.sem5} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem6" className=" col-md-11"/>
+                    <input type="text" name="sem6" className=" col-md-11" value={this.state.sem6} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem7"className=" col-md-11" />
+                    <input type="text" name="sem7"className=" col-md-11" value={this.state.sem7} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem8" className=" col-md-11"/>
+                    <input type="text" name="sem8" className=" col-md-11" value={this.state.sem8} onChange={this.handleChange}/>
                   </td>
                 </tr>
                 <tr>
                   <td>Third Attempt</td>
                   <td>
-                    <input type="text" name="sem1"className=" col-md-11" />
+                    <input type="text" name="sem1"className=" col-md-11" value={this.state.sem1} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem2" className=" col-md-11"/>
+                    <input type="text" name="sem2" className=" col-md-11" value={this.state.sem2} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem3" className=" col-md-11"/>
+                    <input type="text" name="sem3" className=" col-md-11" value={this.state.sem3} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem4" className=" col-md-11" />
+                    <input type="text" name="sem4" className=" col-md-11" value={this.state.sem4} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem5"className=" col-md-11" />
+                    <input type="text" name="sem5"className=" col-md-11" value={this.state.sem5} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem6" className=" col-md-11"/>
+                    <input type="text" name="sem6" className=" col-md-11" value={this.state.sem6} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem7" className=" col-md-11"/>
+                    <input type="text" name="sem7" className=" col-md-11" value={this.state.sem7} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem8" className=" col-md-11"/>
+                    <input type="text" name="sem8" className=" col-md-11" value={this.state.sem8} onChange={this.handleChange}/>
                   </td>
                 </tr>
                 <tr>
                   <td>Fourth Attempt</td>
                   <td>
-                    <input type="text" name="sem1"className=" col-md-11" />
+                    <input type="text" name="sem1"className=" col-md-11" value={this.state.sem1} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem2"className=" col-md-11" />
+                    <input type="text" name="sem2"className=" col-md-11" value={this.state.sem2} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem3"className=" col-md-11" />
+                    <input type="text" name="sem3"className=" col-md-11" value={this.state.sem3} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem4" className=" col-md-11"/>
+                    <input type="text" name="sem4" className=" col-md-11" value={this.state.sem4} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem5"className=" col-md-11" />
+                    <input type="text" name="sem5"className=" col-md-11" value={this.state.sem5} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem6" className=" col-md-11"/>
+                    <input type="text" name="sem6" className=" col-md-11" value={this.state.sem6} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem7" className=" col-md-11"/>
+                    <input type="text" name="sem7" className=" col-md-11" value={this.state.sem7} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem8" className=" col-md-11" />
+                    <input type="text" name="sem8" className=" col-md-11" value={this.state.sem8} onChange={this.handleChange}/>
                   </td>
                 </tr>
               </tbody>
@@ -334,109 +460,109 @@ class StudentInformation extends React.Component {
                 <tr>
                   <td>Attendance After First Defaulters</td>
                   <td>
-                    <input type="text" name="sem1" className=" col-md-11"/>
+                    <input type="text" name="sem1" className=" col-md-11" value={this.state.sem1} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem" className=" col-md-11"/>
+                    <input type="text" name="sem" className=" col-md-11" value={this.state.sem2} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem" className=" col-md-11"/>
+                    <input type="text" name="sem" className=" col-md-11" value={this.state.sem3} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem" className=" col-md-11"/>
+                    <input type="text" name="sem" className=" col-md-11" value={this.state.sem4} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem5" className=" col-md-11"/>
+                    <input type="text" name="sem5" className=" col-md-11" value={this.state.sem5} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem6" className=" col-md-11"/>
+                    <input type="text" name="sem6" className=" col-md-11" value={this.state.sem6} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem7" className=" col-md-11"/>
+                    <input type="text" name="sem7" className=" col-md-11" value={this.state.sem7} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem8" className=" col-md-11"/>
+                    <input type="text" name="sem8" className=" col-md-11" value={this.state.sem8} onChange={this.handleChange}/>
                   </td>
                 </tr>
                 <tr>
                   <td>Attendance After Second Defaulters</td>
                   <td>
-                    <input type="text" name="sem1" className=" col-md-11"/>
+                    <input type="text" name="sem1" className=" col-md-11" value={this.state.sem1} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem2" className=" col-md-11"/>
+                    <input type="text" name="sem2" className=" col-md-11" value={this.state.sem2} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem3" className=" col-md-11"/>
+                    <input type="text" name="sem3" className=" col-md-11" value={this.state.sem3} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem4" className=" col-md-11"/>
+                    <input type="text" name="sem4" className=" col-md-11" value={this.state.sem4} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem5" className=" col-md-11"/>
+                    <input type="text" name="sem5" className=" col-md-11" value={this.state.sem5} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem6" className=" col-md-11"/>
+                    <input type="text" name="sem6" className=" col-md-11" value={this.state.sem6} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem7" className=" col-md-11"/>
+                    <input type="text" name="sem7" className=" col-md-11" value={this.state.sem7} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem8" className=" col-md-11"/>
+                    <input type="text" name="sem8" className=" col-md-11" value={this.state.sem8} onChange={this.handleChange}/>
                   </td>
                 </tr>
                 <tr>
                   <td>Attendance After Third Defaulters</td>
                   <td>
-                    <input type="text" name="sem1" className=" col-md-11"/>
+                    <input type="text" name="sem1" className=" col-md-11" value={this.state.sem1} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem2" className=" col-md-11"/>
+                    <input type="text" name="sem2" className=" col-md-11" value={this.state.sem2} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem3" className=" col-md-11"/>
+                    <input type="text" name="sem3" className=" col-md-11" value={this.state.sem3} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem4" className=" col-md-11"/>
+                    <input type="text" name="sem4" className=" col-md-11" value={this.state.sem4} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem5" className=" col-md-11"/>
+                    <input type="text" name="sem5" className=" col-md-11" value={this.state.sem5} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem6" className=" col-md-11"/>
+                    <input type="text" name="sem6" className=" col-md-11" value={this.state.sem6} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem7"className=" col-md-11" />
+                    <input type="text" name="sem7"className=" col-md-11" value={this.state.sem7} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem8" className=" col-md-11"/>
+                    <input type="text" name="sem8" className=" col-md-11" value={this.state.sem8} onChange={this.handleChange}/>
                   </td>
                 </tr>
                 <tr>
                   <td>Attendance After Final Defaulters</td>
                   <td>
-                    <input type="text" name="sem1" className=" col-md-11"/>
+                    <input type="text" name="sem1" className=" col-md-11" value={this.state.sem1} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem2" className=" col-md-11"/>
+                    <input type="text" name="sem2" className=" col-md-11" value={this.state.sem2} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem3" className=" col-md-11"/>
+                    <input type="text" name="sem3" className=" col-md-11" value={this.state.sem3} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem4" className=" col-md-11"/>
+                    <input type="text" name="sem4" className=" col-md-11" value={this.state.sem4} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem5" className=" col-md-11"/>
+                    <input type="text" name="sem5" className=" col-md-11" value={this.state.sem5} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem6" className=" col-md-11"/>
+                    <input type="text" name="sem6" className=" col-md-11" value={this.state.sem6} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem7" className=" col-md-11"/>
+                    <input type="text" name="sem7" className=" col-md-11" value={this.state.sem7} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="sem8" className=" col-md-11"/>
+                    <input type="text" name="sem8" className=" col-md-11" value={this.state.sem8} onChange={this.handleChange}/>
                   </td>
                 </tr>
               </tbody>
@@ -472,60 +598,44 @@ class StudentInformation extends React.Component {
               <tbody>
                 <tr>
                   <td>
-                    <input type="text" name="date" className=" col-md-11" />
+                    <input type="text" name="date" className=" col-md-11" value={this.state.date} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="award" className=" col-md-11" />
+                    <input type="text" name="award" className=" col-md-11" value={this.state.award} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input
-                      type="text"
-                      name="collegeStateNationalInternational"
-                      className="col-md-11"
-                    />
+                    <input type="text" name="collegeStateNationalInternational" className="col-md-11" value={this.state.collegeStateNationalInternational} onChange={this.handleChange}/>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input type="text" name="date" className=" col-md-11" />
+                    <input type="text" name="date" className=" col-md-11" value={this.state.date} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="award" className=" col-md-11" />
+                    <input type="text" name="award" className=" col-md-11" value={this.state.award} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input
-                      type="text"
-                      name="collegeStateNationalInternational"
-                      className="col-md-11"
-                    />
+                    <input type="text"  name="collegeStateNationalInternational" className="col-md-11" value={this.state.collegeStateNationalInternational} onChange={this.handleChange}/>
                   </td>
                 </tr><tr>
                   <td>
-                    <input type="text" name="date" className=" col-md-11" />
+                    <input type="text" name="date" className=" col-md-11" value={this.state.date} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="award" className=" col-md-11" />
+                    <input type="text" name="award" className=" col-md-11" value={this.state.award} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input
-                      type="text"
-                      name="collegeStateNationalInternational"
-                      className="col-md-11"
-                    />
+                    <input type="text" name="collegeStateNationalInternational" className="col-md-11" value={this.state.collegeStateNationalInternational} onChange={this.handleChange}/>
                   </td>
                 </tr><tr>
                   <td>
-                    <input type="text" name="date" className=" col-md-11" />
+                    <input type="text" name="date" className=" col-md-11" value={this.state.date} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input type="text" name="award" className=" col-md-11" />
+                    <input type="text" name="award" className=" col-md-11" value={this.state.award} onChange={this.handleChange}/>
                   </td>
                   <td>
-                    <input
-                      type="text"
-                      name="collegeStateNationalInternational"
-                      className="col-md-11"
-                    />
+                    <input type="text" name="collegeStateNationalInternational"  className="col-md-11" value={this.state.collegeStateNationalInternational} onChange={this.handleChange} />
                   </td>
                 </tr>
               </tbody>
@@ -536,7 +646,7 @@ class StudentInformation extends React.Component {
             <div className="row mb-3 ">
               <div className=" col-md-12">
               <label className="col-form-label text-end">Any other:</label>
-              <input type="text" className=" form-control" name="anyOther" />
+              <input type="text" className=" form-control" name="anyOther" value={this.state.anyOther} onChange={this.handleChange}/>
             
               <label className="col-form-label text-end mt-2">Signature of student</label>
               <input type="file" className=" form-control" accept=".pdf,.jpg,.jpeg" />
